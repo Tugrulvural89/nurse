@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from "./layouts/Header";
+import TwoColumnLayout from "./layouts/MainColum";
+import MyCard from "./components/Card";
+import MyContainer from "./layouts/CustomCompenents";
+import ContactWidget from "./layouts/ContactWidget";
+import WhyUsSection from "./layouts/CustomIconWidget";
+import MainForm from "./layouts/MainForm";
+import Footer from "./layouts/Footer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Header/>
+            <TwoColumnLayout/>
+            <MyCard/>
+            <MyContainer/>
+            <ContactWidget/>
+            <WhyUsSection/>
+            <MainForm/>
+            <Footer/>
+        </>
+    );
 }
-
 export default App;
