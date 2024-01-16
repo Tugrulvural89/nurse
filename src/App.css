@@ -2,3 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#herobanner {
+    background-image: url('../public/images/arkaplanbir.png');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media only screen and (max-width: 768px) {
+    #contactInfoCard {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}

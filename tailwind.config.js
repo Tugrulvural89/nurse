@@ -2,7 +2,11 @@
 module.exports = {
   content: [ "./public/*.{html,js}", './components/**/*.{html,js}',"./src/**/*.{js,jsx,ts,tsx}",],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
+    },
   },
   plugins: [
       require('@tailwindcss/forms'),

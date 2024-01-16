@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-gray-800 text-white text-center p-4 mt-5">
       <div className="container mx-auto">
         <p className="text-sm">
-          © 2023 Şirket Adı. Tüm Hakları Saklıdır.
+          © 2024 LOOKUP PRICE DIGITAL Tüm Hakları Saklıdır.
         </p>
         <div className="flex justify-center space-x-4 mt-2">
           <a href="/hakkimizda" className="hover:text-gray-300">Hakkımızda</a>
