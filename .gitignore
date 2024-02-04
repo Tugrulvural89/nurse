@@ -4,10 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
-/Users/kasimtugrulvural/PycharmProjects/nurse/nursehost/.env
+
 # testing
 /coverage
-/Users/kasimtugrulvural/PycharmProjects/nurse/.env
+
 # production
 /build
 

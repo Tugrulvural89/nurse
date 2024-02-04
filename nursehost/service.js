@@ -22,21 +22,13 @@ const pool = new Pool({
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin: 'http://localhost:4000' // Sadece bu kaynağa izin ver
+  origin: 'http://localhost:4010' // Sadece bu kaynağa izin ver
 }))
-
 
 
 app.post('/submit-form', authMiddleware,  async (req, res) => {
   const { name, email, tel, germanLevel, occupation, birthDate, isActive } = req.body;
   try {
-    console.log(name);
-    console.log(email);
-    console.log(tel);
-    console.log(germanLevel);
-    console.log(occupation);
-    console.log(birthDate);
-    console.log(isActive);
       await pool.query(
       'INSERT INTO forms (name, email, tel, germanLevel, occupation, birthDate, isactive) VALUES ($1, $2, $3, $4, $5, $6, $7)',
       [name, email, tel, germanLevel, occupation, birthDate, isActive]
