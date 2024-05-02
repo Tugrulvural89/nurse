@@ -22,12 +22,13 @@ const pool = new Pool({
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin: 'http://localhost:4010' // Sadece bu kaynağa izin ver
+  origin: 'https://www.avrupadaisebasla.com' // Sadece bu kaynağa izin ver
 }))
 
 
 app.post('/submit-form', authMiddleware,  async (req, res) => {
   const { name, email, tel, germanLevel, occupation, birthDate, isActive } = req.body;
+  console.log('submit');
   try {
       await pool.query(
       'INSERT INTO forms (name, email, tel, germanLevel, occupation, birthDate, isactive) VALUES ($1, $2, $3, $4, $5, $6, $7)',
