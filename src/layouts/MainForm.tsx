@@ -34,7 +34,7 @@ function MainForm() {
 
 
     try {
-      await axios.post('http://localhost:3020/submit-form', formData, {
+      await axios.post('https://api.avrupadaisebasla.com/submit-form', formData, {
           headers: {
           'x-api-key': apiSecretKey
         }
