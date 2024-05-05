@@ -33,9 +33,9 @@ const TwoColumnLayout = () => {
                         Taşınma Desteği
                     </li>
                 </ul>
-                <button className="bg-blue-500 hover:bg-blue-700 p-4 text-white rounded-xl md:mb-10 px-16">
+                <a href="#myForm" className="bg-blue-500 hover:bg-blue-700 p-4 text-white rounded-xl md:mb-10 px-16">
                     Başvuru Yap
-                </button>
+                </a>
             </div>
         </div>
     </div>
