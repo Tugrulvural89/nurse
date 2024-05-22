@@ -4,6 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');
 const authMiddleware = require("./authMiddleware");
+const multer = require('multer');
+const path = require('path');
+
 
 const app = express();
 const port = 3020;
@@ -18,6 +21,17 @@ const pool = new Pool({
   port: process.env.DB_PORT
 });
 
+// Multer configuration
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  }
+});
+
+const upload = multer({ storage });
 
 app.use(bodyParser.json());
 
@@ -28,11 +42,12 @@ app.use(cors({
 
 app.post('/submit-form', authMiddleware,  async (req, res) => {
   const { name, email, tel, germanLevel, occupation, birthDate, isActive } = req.body;
-  console.log('submit');
+  const cvPath = req.file ? req.file.path : null;
+
   try {
-      await pool.query(
-      'INSERT INTO forms (name, email, tel, germanLevel, occupation, birthDate, isactive) VALUES ($1, $2, $3, $4, $5, $6, $7)',
-      [name, email, tel, germanLevel, occupation, birthDate, isActive]
+    await pool.query(
+        'INSERT INTO forms (name, email, tel, germanLevel, occupation, birthDate, isactive, cv) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
+        [name, email, tel, germanLevel, occupation, birthDate, isActive, cvPath]
     );
     res.status(200).send('Form submitted successfully');
   } catch (err) {

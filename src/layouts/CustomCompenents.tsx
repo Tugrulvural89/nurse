@@ -4,9 +4,9 @@ import Image from '../components/Image';
 const MyContainer = () => {
   return (
     <div className="mx-auto bg-blue-500 pb-5 justify-items-center items-center">
-      <div className="md:flex md:flex-nowrap ml-5 pl-5 justify-items-center items-center">
+      <div className="md:flex md:flex-nowrap justify-items-center items-center">
         {/* Sol Sütun */}
-        <div className="flex-1 p-20">
+        <div className="flex-1 p-8 sm:p-12 md:p-20">
           <h2 className="text-2xl font-semibold mt-4 pt-4 text-white">Avrupada Çalışma</h2>
           <p className="text-white mt-4 pt-4 ">
             Yüz Yüze Mülakat Süreci
