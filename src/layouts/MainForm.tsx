@@ -50,7 +50,6 @@ function MainForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-
     try {
       const data = new FormData();
       for (const key in formData) {
@@ -63,13 +62,15 @@ function MainForm() {
           }
         }
       }
-      await axios.post('https://api.avrupadaisebasla.com/submit-form', formData, {
-          headers: {
-          'x-api-key': apiSecretKey
+
+      await axios.post('https://api.avrupadaisebasla.com/submit-form', data, {
+        headers: {
+          'x-api-key': apiSecretKey,
+          'Content-Type': 'multipart/form-data'
         }
-     });
-        setIsSubmitted(true);
-        setShowModal(true);
+      });
+      setIsSubmitted(true);
+      setShowModal(true);
       // İşlem başarılıysa ek işlemler
     } catch (err) {
       console.error('Error Submitting Form', err);
