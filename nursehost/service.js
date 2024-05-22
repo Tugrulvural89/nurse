@@ -35,6 +35,7 @@ app.use(bodyParser.json());
 app.use(cors({
   origin: 'https://www.avrupadaisebasla.com' // Sadece bu kaynağa izin ver
 }));
+app.options('*', cors()); // Preflight istekleri işleme
 
 app.post('/submit-form', authMiddleware, upload.single('cv'), async (req, res) => {
   const { name, email, tel, germanLevel, occupation, birthDate, isActive } = req.body;
