@@ -13,7 +13,6 @@ interface FormDataType {
   cv: File | null;
 }
 
-
 function MainForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -47,6 +46,7 @@ function MainForm() {
       cv: event.target.files ? event.target.files[0] : null,
     });
   };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -63,12 +63,15 @@ function MainForm() {
         }
       }
 
+
       await axios.post('https://api.avrupadaisebasla.com/submit-form', data, {
         headers: {
           'x-api-key': apiSecretKey,
           'Content-Type': 'multipart/form-data'
         }
       });
+
+
       setIsSubmitted(true);
       setShowModal(true);
       // İşlem başarılıysa ek işlemler
@@ -76,7 +79,6 @@ function MainForm() {
       console.error('Error Submitting Form', err);
     }
   };
-
 
   return (
       <div className="container mx-auto p-4 w-full max-w-3xl" id="myForm">
@@ -194,7 +196,7 @@ function MainForm() {
         </form>
         <Modal show={showModal} onClose={() => setShowModal(false)} />
       </div>
-      );
+  );
 }
 
 export default MainForm;
