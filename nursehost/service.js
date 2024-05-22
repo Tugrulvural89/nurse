@@ -44,6 +44,8 @@ app.post('/submit-form', authMiddleware,  async (req, res) => {
   const { name, email, tel, germanLevel, occupation, birthDate, isActive } = req.body;
   const cvPath = req.file ? req.file.path : null;
 
+  console.log('File path:', cvPath);  // Dosya yolunu kontrol edin
+
   try {
     await pool.query(
         'INSERT INTO forms (name, email, tel, germanLevel, occupation, birthDate, isactive, cv) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
